@@ -16,6 +16,7 @@
     "main-bower-files": "^2.1.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "jscs": "^2.5.0"
   }
 }
