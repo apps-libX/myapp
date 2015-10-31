@@ -11,7 +11,6 @@
 		'app.config'
 		]);
 
-
 	angular.module('app.routes', ['ui.router', 'ngStorage', 'satellizer']);
 	angular.module('app.controllers', ['ui.router', 'ngMaterial', 'ngStorage', 'restangular', 'ngMdIcons', 'angular-loading-bar']);
 	angular.module('app.filters', []);

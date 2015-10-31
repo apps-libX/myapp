@@ -1,7 +1,7 @@
-(function (){
+(function(){
 	"use strict";
 
-	angular.module('app.config').config(function (cfpLoadingBarProvider){
+	angular.module('app.config').config(function(cfpLoadingBarProvider){
 		cfpLoadingBarProvider.includeSpinner = false;
 	});
 

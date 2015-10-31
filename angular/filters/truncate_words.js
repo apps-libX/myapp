@@ -1,8 +1,8 @@
 (function(){
     'use strict';
 
-    angular.module('app.filters').filter('truncateWords', function () {
-        return function (input, words) {
+    angular.module('app.filters').filter('truncateWords', function() {
+        return function(input, words) {
             if (isNaN(words)) {
                 return input;
             }

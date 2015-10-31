@@ -4,12 +4,12 @@
     angular.module('app.controllers').controller('AddUsersCtrl', function($scope, DialogService){
 
         $scope.save = function(){
-	        //do something useful
+            //do something useful
             DialogService.hide();
         };
 
         $scope.hide = function(){
-        	DialogService.hide();
+            DialogService.hide();
         };
 
     });
