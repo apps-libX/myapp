@@ -14,11 +14,12 @@
                 return './views/static/' + viewName + '/' + viewName + '.html';
             };
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/page/');
 
         $stateProvider
             .state('dashboard', {
                 abstract: true,
+                url: '/dashboard',
                 views: {
                     sidebar: {
                         templateUrl: dashboard('sidebar')
@@ -43,6 +44,7 @@
             })
             .state('static', {
                 abstract: true,
+                url: '/page',
                 views: {
                     sidebar: {
                         templateUrl: viewStatic('sidebar')
