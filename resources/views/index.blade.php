@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="app">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -14,11 +14,7 @@
 <body layout="row">
 
 <!-- Sidenav component -->
-<md-sidenav
-        class="Sidebar md-sidenav-left md-whiteframe-z2"
-        md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-md')"
-        tabindex="-1">
+<md-sidenav class="Sidebar md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" tabindex="-1">
 
     <!-- Sidebar header/branding -->
     <md-toolbar class="Sidebar-header">
@@ -29,11 +25,7 @@
     </md-toolbar>
 
     <!-- Sidebar menu items -->
-    <md-content
-            class="Sidebar-pages md-default-theme"
-            ui-view="sidebar"
-            ng-controller="SidebarCtrl">
-    </md-content>
+    <md-content class="Sidebar-pages md-default-theme" ui-view="sidebar" ng-controller="SidebarCtrl"></md-content>
 </md-sidenav>
 
 <div flex role="main" layout="column" tabindex="-1">
@@ -51,9 +43,9 @@
 
 {{--livereload--}}
 @if ( Config::get('app.debug') )
-    <script type="text/javascript">
-        document.write('<script src="'+ location.protocol + '//' + (location.host || 'localhost') +':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
-    </script>
+<script type="text/javascript">
+    document.write('<script src="'+ location.protocol + '//' + (location.host || 'localhost') +':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+</script>
 @endif
 </body>
 </html>

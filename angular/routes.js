@@ -14,7 +14,7 @@
                 return './views/static/' + viewName + '/' + viewName + '.html';
             };
 
-        $urlRouterProvider.otherwise('/page/');
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('dashboard', {
@@ -40,6 +40,15 @@
                         templateUrl: getView('header')
                     },
                     main: {}
+                }
+            })
+            .state('app.landing', {
+                url: '/',
+                data: { pageName: 'Overview' },
+                views: {
+                    'main@': {
+                        templateUrl: getView('landing')
+                    }
                 }
             })
             .state('static', {
