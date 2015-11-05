@@ -49,7 +49,8 @@
                     'main@': {
                         templateUrl: getView('landing')
                     }
-                }
+                },
+                controller: 'LandingCtrl'
             })
             .state('static', {
                 abstract: true,

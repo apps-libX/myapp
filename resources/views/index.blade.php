@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/prism.css') !!}">
     <link href='//fonts.googleapis.com/css?family=Roboto:500,400' rel='stylesheet' type='text/css'>
-    <title>Laravel 5 angular material starter</title>
+    <title ng-bind="title || 'Laravel 5 angular material starter'"></title>
     <!--[if lte IE 10]>
     <script type="text/javascript">document.location.href = '/unsupported-browser'</script>
     <![endif]-->
