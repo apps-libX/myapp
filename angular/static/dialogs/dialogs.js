@@ -1,7 +1,7 @@
 (function() {
 	"use strict";
 
-	angular.module('app.controllers').controller('DialogsCtrl', function($scope, DialogService) {
+	angular.module('app.controllers').controller('Static.DialogsCtrl', function($scope, DialogService) {
 
 		$scope.confirm_message = '';
 

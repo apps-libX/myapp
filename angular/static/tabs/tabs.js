@@ -1,7 +1,7 @@
 (function(){
 	"use strict";
 
-	angular.module('app.controllers').controller('DashboardCtrl', function(){
+	angular.module('app.controllers').controller('Static.DashboardCtrl', function(){
 
 	});
 

@@ -1,7 +1,7 @@
 (function(){
 	"use strict";
 
-	angular.module('app.controllers').controller('HeaderCtrl', function($scope, $rootScope, $mdSidenav, $log){
+	angular.module('app.controllers').controller('Static.HeaderCtrl', function($scope, $rootScope, $mdSidenav, $log){
 
 		$scope.$watch(function(){
 			return $rootScope.current_page;

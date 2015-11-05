@@ -1,7 +1,7 @@
 (function(){
     "use strict";
 
-    angular.module('app.controllers').controller('ElixirCtrl', function(){
+    angular.module('app.controllers').controller('Static.ElixirCtrl', function(){
         //
     });
 
