@@ -19,11 +19,7 @@ elixir(function(mix){
 	mix
 		.angular('./angular/')
 		.less('./angular/**/*.less', 'public/css')
-		.copy('./angular/dashboard/**/*.html', 'public/views/dashboard/')
-		.copy('./angular/app/**/*.html', 'public/views/app/')
-		.copy('./angular/static/**/*.html', 'public/views/static/')
-		.copy('./angular/directives/**/*.html', 'public/views/directives/')
-		.copy('./angular/dialogs/**/*.html', 'public/views/dialogs/');
+		.copy('./angular/**/**/*.html', 'public/views/');
 });
 
 /*

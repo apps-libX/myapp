@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/prism.css') !!}">
     <link href='//fonts.googleapis.com/css?family=Roboto:500,400' rel='stylesheet' type='text/css'>
-    <title ng-bind="title || 'Laravel 5 angular material starter'"></title>
+    <title ng-bind="title || 'Application'"></title>
     <!--[if lte IE 10]>
     <script type="text/javascript">document.location.href = '/unsupported-browser'</script>
     <![endif]-->
@@ -17,12 +17,14 @@
 <md-sidenav class="Sidebar md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" tabindex="-1">
 
     <!-- Sidebar header/branding -->
+    {{--
     <md-toolbar class="Sidebar-header">
-        <h1 class="md-toolbar-tools Sidebar-title">Laravel 5 angular<br>material starter</h1>
+        <h1 class="md-toolbar-tools Sidebar-title">Application</h1>
         <h6 class="Sidebar-version">
-            <a target="_blank" href="https://github.com/jadjoubran/laravel5-angular-material-starter/releases">version 2</a>
+            <a target="_blank" href="">version 2</a>
         </h6>
     </md-toolbar>
+    --}}
 
     <!-- Sidebar menu items -->
     <md-content class="Sidebar-pages md-default-theme" ui-view="sidebar" ng-controller="SidebarCtrl"></md-content>
