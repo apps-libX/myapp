@@ -10,8 +10,8 @@
             getView = function(viewName){
                 return './views/app/' + viewName + '/' + viewName + '.html';
             },
-            viewStatic = function(viewName){
-                return './views/static/' + viewName + '/' + viewName + '.html';
+            staticpage = function(viewName){
+                return './views/staticpage/' + viewName + '/' + viewName + '.html';
             };
 
         $urlRouterProvider.otherwise('/');
@@ -60,133 +60,133 @@
                     }
                 }
             })
-            .state('static', {
+            .state('staticpage', {
                 abstract: true,
                 url: '/page',
                 views: {
                     sidebar: {
-                        templateUrl: viewStatic('sidebar')
+                        templateUrl: staticpage('sidebar')
                     },
                     header: {
-                        templateUrl: viewStatic('header')
+                        templateUrl: staticpage('header')
                     },
                     main: {}
                 }
             })
-            .state('static.landing', {
+            .state('staticpage.landing', {
                 url: '/',
                 data: { pageName: 'Overview' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('landing')
+                        templateUrl: staticpage('landing')
                     }
                 }
             })
-            .state('static.install', {
+            .state('staticpage.install', {
                 url: '/install',
                 data: { pageName: 'Install' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('install')
+                        templateUrl: staticpage('install')
                     }
                 }
             })
-            .state('static.tabs', {
+            .state('staticpage.tabs', {
                 url: '/features',
                 data: { pageName: 'Features' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('tabs')
+                        templateUrl: staticpage('tabs')
                     }
                 }
             })
-            .state('static.deploy', {
+            .state('staticpage.deploy', {
                 url: '/deploy',
                 data: { pageName: 'Deploy' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('deploy')
+                        templateUrl: staticpage('deploy')
                     }
                 }
             })
-            .state('static.theme', {
+            .state('staticpage.theme', {
                 url: '/theme',
                 data: { pageName: 'Theme' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('theme')
+                        templateUrl: staticpage('theme')
                     }
                 }
             })
-            .state('static.toasts', {
+            .state('staticpage.toasts', {
                 url: '/toasts',
                 data: { pageName: 'Toasts' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('toasts')
+                        templateUrl: staticpage('toasts')
                     }
                 }
             })
-            .state('static.dialogs', {
+            .state('staticpage.dialogs', {
                 url: '/dialogs',
                 data: { pageName: 'Dialogs' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('dialogs')
+                        templateUrl: staticpage('dialogs')
                     }
                 }
             })
-            .state('static.generators', {
+            .state('staticpage.generators', {
                 url: '/generators',
                 data: { pageName: 'Artisan generators' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('generators')
+                        templateUrl: staticpage('generators')
                     }
                 }
             })
-            .state('static.jwt_auth', {
+            .state('staticpage.jwt_auth', {
                 url: '/jwt_auth',
                 data: { pageName: 'JSON Web Token Authentication' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('jwt_auth')
+                        templateUrl: staticpage('jwt_auth')
                     }
                 }
             })
-            .state('static.elixir', {
+            .state('staticpage.elixir', {
                 url: '/elixir',
                 data: { pageName: 'Elixir' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('elixir')
+                        templateUrl: staticpage('elixir')
                     }
                 }
             })
-            .state('static.rest_api', {
+            .state('staticpage.rest_api', {
                 url: '/rest_api',
                 data: { pageName: 'REST API' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('rest_api')
+                        templateUrl: staticpage('rest_api')
                     }
                 }
             })
-            .state('static.unsupported_browser', {
+            .state('staticpage.unsupported_browser', {
                 url: '/unsupported_browser',
                 data: { pageName: 'Unsupported Browser' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('unsupported_browser')
+                        templateUrl: staticpage('unsupported_browser')
                     }
                 }
             })
-            .state('static.misc', {
+            .state('staticpage.misc', {
                 url: '/misc',
                 data: { pageName: 'Miscellaneous features' },
                 views: {
                     'main@': {
-                        templateUrl: viewStatic('misc')
+                        templateUrl: staticpage('misc')
                     }
                 }
             });
