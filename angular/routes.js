@@ -30,6 +30,15 @@
                     main: {}
                 }
             })
+            .state('dashboard.home', {
+                url: '/',
+                data: { pageName: 'Overview' },
+                views: {
+                    'main@': {
+                        templateUrl: dashboard('home')
+                    }
+                }
+            })
             .state('app', {
                 abstract: true,
                 views: {
@@ -42,15 +51,14 @@
                     main: {}
                 }
             })
-            .state('app.landing', {
+            .state('app.home', {
                 url: '/',
                 data: { pageName: 'Overview' },
                 views: {
                     'main@': {
-                        templateUrl: getView('landing')
+                        templateUrl: getView('home')
                     }
-                },
-                controller: 'LandingCtrl'
+                }
             })
             .state('static', {
                 abstract: true,
