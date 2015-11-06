@@ -49,6 +49,6 @@
   "disallowKeywordsOnNewLine": [
     "else"
   ],
-  "disallowSpaceAfterObjectKeys": true,
+  "disallowSpaceAfterObjectKeys": "ignoreMultiLine",
   "excludeFiles": ["node_modules/**", "js/vendor/**"]
 }
