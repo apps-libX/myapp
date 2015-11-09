@@ -1,7 +1,7 @@
 (function(){
     "use strict";
 
-    angular.module('app.controllers').controller('LayoutCtrl', function(){
+    angular.module('app.controllers').controller('Dashboard.LayoutCtrl', function(){
         //
     });
 
