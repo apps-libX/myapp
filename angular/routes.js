@@ -12,6 +12,9 @@
             },
             staticpage = function(viewName){
                 return './views/staticpage/' + viewName + '/' + viewName + '.html';
+            },
+            jwtauth = function(viewName){
+                return './views/jwt_auth/' + viewName + '/' + viewName + '.html';
             };
 
         $urlRouterProvider.otherwise('/');
@@ -21,7 +24,7 @@
                 abstract: true,
                 url: '/dashboard',
                 views: {
-                    'layout': {
+                    'layout@': {
                         templateUrl: dashboard('layout')
                     },
                     'sidebar@dashboard': {
@@ -45,7 +48,7 @@
             .state('app', {
                 abstract: true,
                 views: {
-                    'layout': {
+                    'layout@': {
                         templateUrl: getView('layout')
                     },
                     'sidebar@app': {
@@ -66,11 +69,36 @@
                     }
                 }
             })
+            .state('jwtauth', {
+                abstract: true,
+                url: '/auth',
+                views: {
+                    'layout@': {
+                        templateUrl: jwtauth('layout')
+                    },
+                    'sidebar@jwtauth': {
+                        templateUrl: jwtauth('sidebar')
+                    },
+                    'header@jwtauth': {
+                        templateUrl: jwtauth('header')
+                    },
+                    'main@jwtauth': {}
+                }
+            })
+            .state('jwtauth.signin', {
+                url: '/signin',
+                data: { pageName: 'Sign-in' },
+                views: {
+                    'main@app': {
+                        templateUrl: jwtauth('login')
+                    }
+                }
+            })
             .state('staticpage', {
                 abstract: true,
                 url: '/page',
                 views: {
-                    'layout': {
+                    'layout@': {
                         templateUrl: staticpage('layout')
                     },
                     'sidebar@staticpage': {
