@@ -11,33 +11,9 @@
     <script type="text/javascript">document.location.href = '/unsupported-browser'</script>
     <![endif]-->
 </head>
-<body layout="row">
+<body>
 
-<!-- Sidenav component -->
-<md-sidenav class="Sidebar md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" tabindex="-1">
-
-    <!-- Sidebar header/branding -->
-    {{--
-    <md-toolbar class="Sidebar-header">
-        <h1 class="md-toolbar-tools Sidebar-title">Application</h1>
-        <h6 class="Sidebar-version">
-            <a target="_blank" href="">version 2</a>
-        </h6>
-    </md-toolbar>
-    --}}
-
-    <!-- Sidebar menu items -->
-    <md-content class="Sidebar-pages md-default-theme" ui-view="sidebar" ng-controller="SidebarCtrl"></md-content>
-</md-sidenav>
-
-<div flex role="main" layout="column" tabindex="-1">
-    <md-toolbar class="Header md-accent md-whiteframe-z1" layout="column">
-        <div ui-view="header" ng-controller="HeaderCtrl"></div>
-    </md-toolbar>
-    <md-content layout="column" flex md-scroll-y>
-        <div ui-view="main" class="Page"></div>
-    </md-content>
-</div>
+<div ui-view="layout"></div>
 
 <script src="{!! asset('js/vendor.js') !!}"></script>
 <script src="{!! asset('js/app.js') !!}"></script>

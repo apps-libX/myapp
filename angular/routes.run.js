@@ -14,7 +14,7 @@
 		});
 
 		$rootScope.$on("$stateChangeSuccess", function(event, toState){
-			$mdSidenav('left').close();
+			// $mdSidenav('left').close();
 		});
 	});
 

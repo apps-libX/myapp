@@ -21,20 +21,23 @@
                 abstract: true,
                 url: '/dashboard',
                 views: {
-                    sidebar: {
+                    'layout': {
+                        templateUrl: dashboard('layout')
+                    },
+                    'sidebar@dashboard': {
                         templateUrl: dashboard('sidebar')
                     },
-                    header: {
+                    'header@dashboard': {
                         templateUrl: dashboard('header')
                     },
-                    main: {}
+                    'main@dashboard': {}
                 }
             })
             .state('dashboard.home', {
                 url: '/',
                 data: { pageName: 'Overview' },
                 views: {
-                    'main@': {
+                    'main@dashboard': {
                         templateUrl: dashboard('home')
                     }
                 }
@@ -42,20 +45,23 @@
             .state('app', {
                 abstract: true,
                 views: {
-                    sidebar: {
+                    'layout': {
+                        templateUrl: getView('layout')
+                    },
+                    'sidebar@app': {
                         templateUrl: getView('sidebar')
                     },
-                    header: {
+                    'header@app': {
                         templateUrl: getView('header')
                     },
-                    main: {}
+                    'main@app': {}
                 }
             })
             .state('app.home', {
                 url: '/',
                 data: { pageName: 'Overview' },
                 views: {
-                    'main@': {
+                    'main@app': {
                         templateUrl: getView('home')
                     }
                 }
@@ -64,20 +70,23 @@
                 abstract: true,
                 url: '/page',
                 views: {
-                    sidebar: {
+                    'layout': {
+                        templateUrl: staticpage('layout')
+                    },
+                    'sidebar@staticpage': {
                         templateUrl: staticpage('sidebar')
                     },
-                    header: {
+                    'header@staticpage': {
                         templateUrl: staticpage('header')
                     },
-                    main: {}
+                    'main@staticpage': {}
                 }
             })
             .state('staticpage.landing', {
                 url: '/',
                 data: { pageName: 'Overview' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('landing')
                     }
                 }
@@ -86,7 +95,7 @@
                 url: '/install',
                 data: { pageName: 'Install' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('install')
                     }
                 }
@@ -95,7 +104,7 @@
                 url: '/features',
                 data: { pageName: 'Features' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('tabs')
                     }
                 }
@@ -104,7 +113,7 @@
                 url: '/deploy',
                 data: { pageName: 'Deploy' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('deploy')
                     }
                 }
@@ -113,7 +122,7 @@
                 url: '/theme',
                 data: { pageName: 'Theme' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('theme')
                     }
                 }
@@ -122,7 +131,7 @@
                 url: '/toasts',
                 data: { pageName: 'Toasts' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('toasts')
                     }
                 }
@@ -131,7 +140,7 @@
                 url: '/dialogs',
                 data: { pageName: 'Dialogs' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('dialogs')
                     }
                 }
@@ -140,7 +149,7 @@
                 url: '/generators',
                 data: { pageName: 'Artisan generators' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('generators')
                     }
                 }
@@ -149,7 +158,7 @@
                 url: '/jwt_auth',
                 data: { pageName: 'JSON Web Token Authentication' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('jwt_auth')
                     }
                 }
@@ -158,7 +167,7 @@
                 url: '/elixir',
                 data: { pageName: 'Elixir' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('elixir')
                     }
                 }
@@ -167,7 +176,7 @@
                 url: '/rest_api',
                 data: { pageName: 'REST API' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('rest_api')
                     }
                 }
@@ -176,7 +185,7 @@
                 url: '/unsupported_browser',
                 data: { pageName: 'Unsupported Browser' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('unsupported_browser')
                     }
                 }
@@ -185,7 +194,7 @@
                 url: '/misc',
                 data: { pageName: 'Miscellaneous features' },
                 views: {
-                    'main@': {
+                    'main@staticpage': {
                         templateUrl: staticpage('misc')
                     }
                 }
