@@ -19,7 +19,8 @@
         'restangular',
         'ngMdIcons',
         'angular-loading-bar',
-        'ngMessages'
+        'ngMessages',
+        'vAccordion'
     ]);
     angular.module('app.filters', []);
     angular.module('app.services', ['ui.router', 'ngStorage', 'restangular']);
