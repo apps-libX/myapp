@@ -89,7 +89,7 @@
                 url: '/signin',
                 data: { pageName: 'Sign-in' },
                 views: {
-                    'main@app': {
+                    'main@jwtauth': {
                         templateUrl: jwtauth('login')
                     }
                 }
