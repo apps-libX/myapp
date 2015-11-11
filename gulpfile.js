@@ -18,7 +18,7 @@ require('laravel-elixir-livereload');
 elixir(function(mix){
 	mix
 		.angular('./angular/')
-		.less('./angular/**/*.less', 'public/css')
+		.sass('./angular/**/*.scss', 'public/css')
 		.copy('./angular/**/**/*.html', 'public/views/');
 });
 
