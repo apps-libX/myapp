@@ -3,40 +3,6 @@
 
     angular.module('app.routes').config(function($stateProvider, $urlRouterProvider) {
 
-        var view = function(viewName) {
-            var
-                appName  = function() {
-                    if (viewName.split(".")[0]) {
-                        return viewName.split(".")[0];
-                    } else {
-                        return 'app';
-                    }
-                },
-                fileDir  = function() {
-                    if (viewName.split(".")[1]) {
-                        return viewName.split(".")[1];
-                    } else if (!viewName.split(".")[0]) {
-                        return viewName;
-                    } else {
-                        return 'home';
-                    }
-                },
-                fileName = function() {
-                    if (viewName.split(".")[2]) {
-                        return viewName.split(".")[2];
-                    } else if (!viewName.split(".")[2]) {
-                        if (viewName.split(".")[1]) {
-                            return _.repeat(viewName.split(".")[1], 1);
-                        }
-                    } else {
-                        return 'home';
-                    }
-                };
-
-            return './views/' + appName() + '/' + fileDir() + '/' + fileName() + '.html';
-
-        };
-
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -247,5 +213,39 @@
                     }
                 }
             });
+
+        function view(viewName) {
+            var
+                appName  = function() {
+                    if (viewName.split(".")[0]) {
+                        return viewName.split(".")[0];
+                    } else {
+                        return 'app';
+                    }
+                },
+                fileDir  = function() {
+                    if (viewName.split(".")[1]) {
+                        return viewName.split(".")[1];
+                    } else if (!viewName.split(".")[0]) {
+                        return viewName;
+                    } else {
+                        return 'home';
+                    }
+                },
+                fileName = function() {
+                    if (viewName.split(".")[2]) {
+                        return viewName.split(".")[2];
+                    } else if (!viewName.split(".")[2]) {
+                        if (viewName.split(".")[1]) {
+                            return viewName.split(".")[1];
+                        }
+                    } else {
+                        return 'home';
+                    }
+                };
+
+            return './views/' + appName() + '/' + fileDir() + '/' + fileName() + '.html';
+
+        }
     });
 })();
