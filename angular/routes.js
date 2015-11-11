@@ -1,232 +1,251 @@
-(function(){
+(function() {
     "use strict";
 
-    angular.module('app.routes').config(function($stateProvider, $urlRouterProvider){
+    angular.module('app.routes').config(function($stateProvider, $urlRouterProvider) {
 
-        var
-            dashboard = function(viewName){
-                return './views/dashboard/' + viewName + '/' + viewName + '.html';
-            },
-            getView = function(viewName){
-                return './views/app/' + viewName + '/' + viewName + '.html';
-            },
-            staticpage = function(viewName){
-                return './views/staticpage/' + viewName + '/' + viewName + '.html';
-            },
-            jwtauth = function(viewName){
-                return './views/jwt_auth/' + viewName + '/' + viewName + '.html';
-            };
+        var view = function(viewName) {
+            var
+                appName  = function() {
+                    if (viewName.split(".")[0]) {
+                        return viewName.split(".")[0];
+                    } else {
+                        return 'app';
+                    }
+                },
+                fileDir  = function() {
+                    if (viewName.split(".")[1]) {
+                        return viewName.split(".")[1];
+                    } else if (!viewName.split(".")[0]) {
+                        return viewName;
+                    } else {
+                        return 'home';
+                    }
+                },
+                fileName = function() {
+                    if (viewName.split(".")[2]) {
+                        return viewName.split(".")[2];
+                    } else if (!viewName.split(".")[2]) {
+                        if (viewName.split(".")[1]) {
+                            return _.repeat(viewName.split(".")[1], 1);
+                        }
+                    } else {
+                        return 'home';
+                    }
+                };
+
+            return './views/' + appName() + '/' + fileDir() + '/' + fileName() + '.html';
+
+        };
 
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('dashboard', {
                 abstract: true,
-                url: '/dashboard',
-                views: {
-                    'layout@': {
-                        templateUrl: dashboard('layout')
+                url     : '/dashboard',
+                views   : {
+                    'layout@'          : {
+                        templateUrl: view('dashboard.layout')
                     },
                     'sidebar@dashboard': {
-                        templateUrl: dashboard('sidebar')
+                        templateUrl: view('dashboard.sidebar')
                     },
-                    'header@dashboard': {
-                        templateUrl: dashboard('header')
+                    'header@dashboard' : {
+                        templateUrl: view('dashboard.header')
                     },
-                    'main@dashboard': {}
+                    'main@dashboard'   : {}
                 }
             })
             .state('dashboard.home', {
-                url: '/',
-                data: { pageName: 'Overview' },
+                url  : '/',
+                data : { pageName: 'Overview' },
                 views: {
                     'main@dashboard': {
-                        templateUrl: dashboard('home')
+                        templateUrl: view('dashboard.home')
                     }
                 }
             })
             .state('app', {
                 abstract: true,
-                views: {
-                    'layout@': {
-                        templateUrl: getView('layout')
+                views   : {
+                    'layout@'    : {
+                        templateUrl: view('app.layout')
                     },
                     'sidebar@app': {
-                        templateUrl: getView('sidebar')
+                        templateUrl: view('app.sidebar')
                     },
-                    'header@app': {
-                        templateUrl: getView('header')
+                    'header@app' : {
+                        templateUrl: view('app.header')
                     },
-                    'main@app': {}
+                    'main@app'   : {}
                 }
             })
             .state('app.home', {
-                url: '/',
-                data: { pageName: 'Overview' },
+                url  : '/',
+                data : { pageName: 'Overview' },
                 views: {
                     'main@app': {
-                        templateUrl: getView('home')
+                        templateUrl: view('app.home')
                     }
                 }
             })
             .state('jwtauth', {
                 abstract: true,
-                url: '/auth',
-                views: {
-                    'layout@': {
-                        templateUrl: jwtauth('layout')
+                url     : '/auth',
+                views   : {
+                    'layout@'        : {
+                        templateUrl: view('jwt_auth.layout')
                     },
                     'sidebar@jwtauth': {
-                        templateUrl: jwtauth('sidebar')
+                        templateUrl: view('jwt_auth.sidebar')
                     },
-                    'header@jwtauth': {
-                        templateUrl: jwtauth('header')
+                    'header@jwtauth' : {
+                        templateUrl: view('jwt_auth.header')
                     },
-                    'main@jwtauth': {}
+                    'main@jwtauth'   : {}
                 }
             })
             .state('jwtauth.signin', {
-                url: '/signin',
-                data: { pageName: 'Sign-in' },
+                url  : '/signin',
+                data : { pageName: 'Sign-in' },
                 views: {
                     'main@jwtauth': {
-                        templateUrl: jwtauth('login')
+                        templateUrl: view('jwt_auth.login')
                     }
                 }
             })
             .state('staticpage', {
                 abstract: true,
-                url: '/page',
-                views: {
-                    'layout@': {
-                        templateUrl: staticpage('layout')
+                url     : '/page',
+                views   : {
+                    'layout@'           : {
+                        templateUrl: view('staticpage.layout')
                     },
                     'sidebar@staticpage': {
-                        templateUrl: staticpage('sidebar')
+                        templateUrl: view('staticpage.sidebar')
                     },
-                    'header@staticpage': {
-                        templateUrl: staticpage('header')
+                    'header@staticpage' : {
+                        templateUrl: view('staticpage.header')
                     },
-                    'main@staticpage': {}
+                    'main@staticpage'   : {}
                 }
             })
             .state('staticpage.landing', {
-                url: '/',
-                data: { pageName: 'Overview' },
+                url  : '/',
+                data : { pageName: 'Overview' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('landing')
+                        templateUrl: view('staticpage.landing')
                     }
                 }
             })
             .state('staticpage.install', {
-                url: '/install',
-                data: { pageName: 'Install' },
+                url  : '/install',
+                data : { pageName: 'Install' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('install')
+                        templateUrl: view('staticpage.install')
                     }
                 }
             })
             .state('staticpage.tabs', {
-                url: '/features',
-                data: { pageName: 'Features' },
+                url  : '/features',
+                data : { pageName: 'Features' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('tabs')
+                        templateUrl: view('staticpage.tabs')
                     }
                 }
             })
             .state('staticpage.deploy', {
-                url: '/deploy',
-                data: { pageName: 'Deploy' },
+                url  : '/deploy',
+                data : { pageName: 'Deploy' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('deploy')
+                        templateUrl: view('staticpage.deploy')
                     }
                 }
             })
             .state('staticpage.theme', {
-                url: '/theme',
-                data: { pageName: 'Theme' },
+                url  : '/theme',
+                data : { pageName: 'Theme' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('theme')
+                        templateUrl: view('staticpage.theme')
                     }
                 }
             })
             .state('staticpage.toasts', {
-                url: '/toasts',
-                data: { pageName: 'Toasts' },
+                url  : '/toasts',
+                data : { pageName: 'Toasts' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('toasts')
+                        templateUrl: view('staticpage.toasts')
                     }
                 }
             })
             .state('staticpage.dialogs', {
-                url: '/dialogs',
-                data: { pageName: 'Dialogs' },
+                url  : '/dialogs',
+                data : { pageName: 'Dialogs' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('dialogs')
+                        templateUrl: view('staticpage.dialogs')
                     }
                 }
             })
             .state('staticpage.generators', {
-                url: '/generators',
-                data: { pageName: 'Artisan generators' },
+                url  : '/generators',
+                data : { pageName: 'Artisan generators' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('generators')
+                        templateUrl: view('staticpage.generators')
                     }
                 }
             })
             .state('staticpage.jwt_auth', {
-                url: '/jwt_auth',
-                data: { pageName: 'JSON Web Token Authentication' },
+                url  : '/jwt_auth',
+                data : { pageName: 'JSON Web Token Authentication' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('jwt_auth')
+                        templateUrl: view('staticpage.jwt_auth')
                     }
                 }
             })
             .state('staticpage.elixir', {
-                url: '/elixir',
-                data: { pageName: 'Elixir' },
+                url  : '/elixir',
+                data : { pageName: 'Elixir' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('elixir')
+                        templateUrl: view('staticpage.elixir')
                     }
                 }
             })
             .state('staticpage.rest_api', {
-                url: '/rest_api',
-                data: { pageName: 'REST API' },
+                url  : '/rest_api',
+                data : { pageName: 'REST API' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('rest_api')
+                        templateUrl: view('staticpage.rest_api')
                     }
                 }
             })
             .state('staticpage.unsupported_browser', {
-                url: '/unsupported_browser',
-                data: { pageName: 'Unsupported Browser' },
+                url  : '/unsupported_browser',
+                data : { pageName: 'Unsupported Browser' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('unsupported_browser')
+                        templateUrl: view('staticpage.unsupported_browser')
                     }
                 }
             })
             .state('staticpage.misc', {
-                url: '/misc',
-                data: { pageName: 'Miscellaneous features' },
+                url  : '/misc',
+                data : { pageName: 'Miscellaneous features' },
                 views: {
                     'main@staticpage': {
-                        templateUrl: staticpage('misc')
+                        templateUrl: view('staticpage.misc')
                     }
                 }
             });
-
     });
 })();
