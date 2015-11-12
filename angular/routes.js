@@ -11,7 +11,7 @@
                 url     : '/dashboard',
                 views   : {
                     'layout@'          : {
-                        templateUrl: view('dashboard.layout')
+                        templateUrl: layout('dashboard.layout')
                     },
                     'sidebar@dashboard': {
                         templateUrl: view('dashboard.sidebar')
@@ -35,7 +35,7 @@
                 abstract: true,
                 views   : {
                     'layout@'    : {
-                        templateUrl: view('app.layout')
+                        templateUrl: layout('app.layout')
                     },
                     'sidebar@app': {
                         templateUrl: view('app.sidebar')
@@ -60,7 +60,7 @@
                 url     : '/auth',
                 views   : {
                     'layout@'        : {
-                        templateUrl: view('jwt_auth.layout')
+                        templateUrl: layout('jwt_auth.layout')
                     },
                     'sidebar@jwtauth': {
                         templateUrl: view('jwt_auth.sidebar')
@@ -85,7 +85,7 @@
                 url     : '/page',
                 views   : {
                     'layout@'           : {
-                        templateUrl: view('staticpage.layout')
+                        templateUrl: layout('staticpage.layout')
                     },
                     'sidebar@staticpage': {
                         templateUrl: view('staticpage.sidebar')
@@ -220,6 +220,15 @@
             } else {
                 return './views/app/app/home/home.html';
             }
+        }
+
+        function layout(viewName) {
+            if (viewName !== "") {
+                return './views/themes/' + appName(viewName) + '/' + fileDir(viewName) + '/' + fileName(viewName) + '.html';
+            } else {
+                return './views/app/app/home/home.html';
+            }
+
         }
 
         function appName(v) {
