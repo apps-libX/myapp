@@ -21,7 +21,7 @@ Elixir.extend('angular', function(src, output, outputFilename) {
 
 	new Task('angular in ' + baseDir, function() {
 		// Main file has to be included first.
-		return gulp.src([baseDir + "main.js", baseDir + "**/*.js"])
+		return gulp.src([baseDir + "main.js", baseDir + "**/**/*.js"])
 			.pipe(jshint())
 			.pipe(jshint.reporter(stylish))
 			//.pipe(jshint.reporter('fail')).on('error', onError) //enable this if you want to force jshint to validate
@@ -37,6 +37,6 @@ Elixir.extend('angular', function(src, output, outputFilename) {
 				icon: __dirname + '/../node_modules/laravel-elixir/icons/laravel.png',
 				message: ' '
 			}));
-	}).watch(baseDir + '/**/*.js');
+	}).watch(baseDir + '/**/**/*.js');
 
 });

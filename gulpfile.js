@@ -3,7 +3,6 @@ require('./tasks/angular.task.js');
 require('./tasks/bower.task.js');
 require('laravel-elixir-livereload');
 
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -16,10 +15,12 @@ require('laravel-elixir-livereload');
  */
 
 elixir(function(mix){
+	'use strict';
+
 	mix
-		.angular('./angular/')
-		.sass('./angular/**/*.scss', 'public/css')
-		.copy('./angular/**/**/*.html', 'public/views/');
+		.angular('./angular/**/')
+		.sass('./angular/**/**/**/*.scss', 'public/css')
+		.copy('./angular/**/**/**/*.html', 'public/views/');
 });
 
 /*

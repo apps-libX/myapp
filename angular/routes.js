@@ -215,37 +215,39 @@
             });
 
         function view(viewName) {
-            var
-                appName  = function() {
-                    if (viewName.split(".")[0]) {
-                        return viewName.split(".")[0];
-                    } else {
-                        return 'app';
-                    }
-                },
-                fileDir  = function() {
-                    if (viewName.split(".")[1]) {
-                        return viewName.split(".")[1];
-                    } else if (!viewName.split(".")[0]) {
-                        return viewName;
-                    } else {
-                        return 'home';
-                    }
-                },
-                fileName = function() {
-                    if (viewName.split(".")[2]) {
-                        return viewName.split(".")[2];
-                    } else if (!viewName.split(".")[2]) {
-                        if (viewName.split(".")[1]) {
-                            return viewName.split(".")[1];
-                        }
-                    } else {
-                        return 'home';
-                    }
-                };
 
-            return './views/' + appName() + '/' + fileDir() + '/' + fileName() + '.html';
+            return './views/app/' + appName(viewName) + '/' + fileDir(viewName) + '/' + fileName(viewName) + '.html';
 
+        }
+
+        function appName(v) {
+            if (v.split(".")[0]) {
+                return v.split(".")[0];
+            } else {
+                return 'app';
+            }
+        }
+
+        function fileDir(v) {
+            if (v.split(".")[1]) {
+                return v.split(".")[1];
+            } else if (!v.split(".")[0]) {
+                return v;
+            } else {
+                return 'home';
+            }
+        }
+
+        function fileName(v) {
+            if (v.split(".")[2]) {
+                return v.split(".")[2];
+            } else if (!v.split(".")[2]) {
+                if (v.split(".")[1]) {
+                    return v.split(".")[1];
+                }
+            } else {
+                return 'home';
+            }
         }
     });
 })();
